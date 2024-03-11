@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN" strict="true">
+
+<Properties>
+    <Property name="myfile">./src/test/resources/Logs</Property>
+  </Properties>
+	<Appenders>	
+	 
+	 <RollingFile name="file" fileName="${myfile}/logdemo.log" filePattern="${myfile}/logdemo-%d{HH-mm-ss-SSS}.log">
+            <PatternLayout>
+              <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <SizeBasedTriggeringPolicy size="1 kb" />
+     </RollingFile>
+          
+          <Console name="Console" target="SYSTEM_OUT">
+     		 <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+   		 </Console>
+                 	
+	</Appenders>
+
+	<Loggers>
+	
+	 	<!--  <Logger name="C:\Users\Admin\git\POM_Java_Generics\src\main\java\mypack" lavel="info" additivity="false">
+				<AppenderRef ref="Console"/>
+		 		<AppenderRef ref="file" />
+		</Logger>
+	-->
+	<Root level="trace">
+      <AppenderRef ref="Console"/>
+       <AppenderRef ref="file" />
+    </Root>
+
+	</Loggers>
+
+</Configuration>
+ 
